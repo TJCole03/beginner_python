@@ -1,4 +1,5 @@
 # print("suuuuuuuh")
+import random
 
 board = ["-", "-", "-",
          "-", "-", "-",
@@ -94,6 +95,14 @@ def switchPlayer():
     else:
         currentPlayer = "X"
 
+
+def computer(board):
+    while currentPlayer == "O":
+        position = random.randint(0, 8)
+        if board[position] == "-":
+            board[position] = "O"
+            switchPlayer()
+
 # check for win/tie again
 
 
@@ -103,3 +112,6 @@ while gameRunning:
     checkWin()
     checkTie(board)
     switchPlayer()
+    computer(board)
+    checkWin()
+    checkTie(board)
